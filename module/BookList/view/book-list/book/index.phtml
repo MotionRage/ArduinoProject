@@ -1,0 +1,25 @@
+<?php
+$title = 'SomeTitle';
+$this->headTitle($title);
+?>
+<a href="<?php echo $this->url('book',
+                array('action' => 'add','id'=>$value->id));?>">add book</a>
+<table>
+<tr>
+    <td>Title</td>
+    <td>Author</td>
+    <td></td>
+</tr>
+<?php foreach ($books as $value) { ?>
+    <tr>
+        <td><?php echo $this->escapeHtml($value->$title);?></td>
+        <td><?php echo $this->escapeHtml($value->$author);?></td>
+        <td>
+            <a href="<?php echo $this->url('book',
+                array('action' => 'edit','id'=>$value->id));?>">edit</a>
+            <a href="<?php echo $this->url('book',
+                array('action' => 'delete','id'=>$value->id));?>">delete</a>
+        </td>
+    </tr>
+<?php } ?>
+</table>
